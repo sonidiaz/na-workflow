@@ -1,0 +1,100 @@
+.container{
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid white;
+  @include tablet{
+    width: 90%;
+  }
+  @include desktop{
+    max-width: 1280px;
+  };
+}
+
+// fondo de imagen
+.background {
+  display: table;
+  width:100%;
+  position: relative;
+  .contenido {
+    display: table-cell;
+    vertical-align: bottom;
+    padding: 0 20px 20px 20px;
+    position: relative;
+    font-size:1.3rem;
+    p {
+      color:white;
+      font-weight: 700;
+    }
+  }
+}
+
+
+//utilizando mixin
+
+.london {
+  @include imagenFondo('../img/imagen02.jpg', 600px, top center );
+}
+
+.estacion {
+  @include imagenFondo('../img/imagen03.jpg', 200px);
+}
+body{
+  font-family: $primary-fuente;
+  background: $primary-color;
+}
+
+
+
+.main{
+
+}
+
+
+.row {
+  @include clearfix;
+  @include tablet {
+    margin:0 -1em;
+  }
+}
+
+[class*='col-'] {
+  float:left;
+  padding:1em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@include tablet {
+  @for $i from 1 through $numero-columnas {
+    .col-#{$i} {
+      width:100% / $numero-columnas * $i;
+    }
+  }
+}
+
+.noticia{
+  padding-top: 10px;
+  margin-bottom: 30px;
+  border-top: 2px dotted $color-border-noticia;
+  h3{
+    color: $color-header-noticia;
+  }
+  img{
+    float: left;
+    margin-right: 10px;
+  }
+}
+
+.btn{
+  position: relative;
+  display: block;
+  padding: 10px;
+  background: red;
+  color: white;
+  width: 10%;
+  @include tablet{
+    display: inline-block;;
+  }
+}
